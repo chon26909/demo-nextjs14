@@ -2,7 +2,6 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import { ThemeContextProvider } from '@/context/ThemeContext';
-import { useRouter } from 'next/router';
 
 const template = ({ children }: { children: React.ReactNode }) => {
     return (
