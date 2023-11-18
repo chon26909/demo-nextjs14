@@ -1,21 +1,21 @@
-import { ThemeContext } from '@/app/layout';
-import React, { useContext } from 'react';
+import Link from 'next/link';
+import React from 'react';
 
 const Navbar = () => {
-    const themeContext = useContext(ThemeContext);
-
     return (
-        <nav>
-            <pre>{JSON.stringify(themeContext)}</pre>
-
-            <button
-                onClick={() =>
-                    themeContext?.setTheme(themeContext.theme === 'light' ? 'dark' : 'light')
-                }
-            >
-                change theme
-            </button>
-        </nav>
+        <header className='bg-primary '>
+            <div className='container mx-auto py-5 font-bold text-white'>
+                <Link href={'/'} className='mr-10'>
+                    Home
+                </Link>
+                <Link href={'/admin/dashboard'} className='mr-10'>
+                    Dashboard
+                </Link>
+                <Link href={'/setting'} className='mr-10'>
+                    Setting
+                </Link>
+            </div>
+        </header>
     );
 };
 
