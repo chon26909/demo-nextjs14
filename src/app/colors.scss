@@ -4,8 +4,65 @@ $purple-primary: #8b5cf6;
 [theme-data='light'] {
     --primary-color: #{$blue-primary};
     --secondary-color: #{$purple-primary};
+    --text-primary: black;
 }
 
 [theme-data='dark'] {
     --primary-color: #{$purple-primary};
+    --text-primary: white;
 }
+
+// :root {
+//     --primary-color: #287cff;
+//     --background: white;
+//     --text-primary: black;
+//     --text-primary: green;
+//     --sidebar-width: 17rem;
+//     --gradient-purple-blue: linear-gradient(
+//         45deg,
+//         rgba(103, 21, 205, 1) 0%,
+//         rgba(37, 113, 250, 1) 100%
+//     );
+//     --gradient-orange-yellow: linear-gradient(
+//         45deg,
+//         rgba(252, 79, 27, 1) 0%,
+//         rgba(247, 178, 50, 1) 100%
+//     );
+//     --gradient-green-yellowgreen: linear-gradient(
+//         48deg,
+//         rgba(9, 177, 150, 1) 0%,
+//         rgba(144, 200, 65, 1) 100%
+//     );
+//     --gradient-pink-orange: linear-gradient(
+//         48deg,
+//         rgba(239, 10, 116, 1) 0%,
+//         rgba(254, 100, 8, 1) 100%
+//     );
+
+//     --white: #ffffff;
+//     --gray-dark: #838383;
+//     --gray-darkest: #565656;
+//     --gray-label: #212121;
+//     --gray: #cacaca;
+//     --gray-light: #dadfe3;
+//     --gray-lighter: #f8f8f8;
+//     --gray-tag: #f4f6f6;
+//     --gray-text: #7d848b;
+//     --blue-fade-dark: #72acde;
+//     --sky: #32bbff;
+//     --navy-blue: #22385b;
+//     --blue-lighter: #f2f9ff;
+//     --blue-dark: #16499b;
+//     --blue-primary: #0259c3;
+//     --blue-secondary: #0974ba;
+//     --green-fade: #edfbe0;
+//     --green-primary: #70b412;
+//     --green-dark: #4f9800;
+//     --red-fade: #fee8e3;
+//     --red-fade-2: #fff2ef;
+//     --red-primary: #db0000;
+//     --orange-primary: #f08700;
+//     --orange-fade: #fff2df;
+//     --orange-darkest: #f48900;
+//     --black: #212121;
+// }
