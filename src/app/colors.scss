@@ -1,15 +1,32 @@
 $blue-primary: #3b82f6;
 $purple-primary: #8b5cf6;
+$orange-primary: rgb(254, 97, 50);
+
+$dark: rgb(21, 21, 21);
+
+$gradient-purple-blue: linear-gradient(45deg, rgba(103, 21, 205, 1) 0%, rgba(37, 113, 250, 1) 100%);
+$gradient-orange: linear-gradient(0deg, $orange-primary 0%, rgb(243, 200, 185) 100%);
+$gradient-dark: linear-gradient(0deg, $dark 0%, $dark 100%);
 
 [theme-data='light'] {
     --primary-color: #{$blue-primary};
     --secondary-color: #{$purple-primary};
     --text-primary: black;
+
+    --sidebar-background-gradient: #{$gradient-purple-blue};
 }
 
 [theme-data='dark'] {
-    --primary-color: #{$purple-primary};
+    --primary-color: #{$dark};
+    --text-primary: rgb(255, 255, 255);
+
+    --sidebar-background-gradient: #{$gradient-dark};
+}
+
+[theme-data='shopee'] {
+    --primary-color: #{$orange-primary};
     --text-primary: white;
+    --sidebar-background-gradient: #{$gradient-orange};
 }
 
 // :root {
