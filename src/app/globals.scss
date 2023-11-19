@@ -4,6 +4,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;400;500;600;700&display=swap');
+div,
+span,
+p,
+ul,
+li,
+input,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Kanit', sans-serif;
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 7px;
