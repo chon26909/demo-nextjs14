@@ -1,12 +1,12 @@
 import Spinner from '@/components/spinner/Spinner';
 import React from 'react';
 
-const loading = () => {
+const LoadingAdminLayout = () => {
     return (
-        <div className='w-full flex justify-center'>
+        <div className='flex justify-center w-full'>
             <Spinner />
         </div>
     );
 };
 
-export default loading;
+export default LoadingAdminLayout;

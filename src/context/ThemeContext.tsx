@@ -8,7 +8,7 @@ import React, {
     useState
 } from 'react';
 
-type Theme = 'light' | 'dark' | 'none';
+type Theme = 'light' | 'dark' | 'shopee' | 'none';
 
 export interface ThemeContextType {
     theme: Theme;

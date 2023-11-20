@@ -1,15 +1,18 @@
-import Navbar from '@/components/Navbar';
+import React, { Suspense } from 'react';
+import NavbarAdmin from '@/components/NavbarAdmin';
 import Sidebar from '@/components/Sidebar';
 import { ThemeContextProvider } from '@/context/ThemeContext';
-import React from 'react';
+import LoadingAdminLayout from './loading';
 
 const AdminLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <ThemeContextProvider>
-            <Navbar />
-            <div className='flex overflow-x-hidden min-h-[94vh] transition'>
+            <NavbarAdmin />
+            <div className='flex overflow-y-hidden min-h-[calc(100vh-75px)] transition'>
                 <Sidebar />
-                <main className='w-full overflow-y-scroll'>{children}</main>
+                <Suspense fallback={<LoadingAdminLayout />}>
+                    <main className='w-full overflow-y-scroll p-5'>{children}</main>
+                </Suspense>
             </div>
         </ThemeContextProvider>
     );

@@ -1,12 +1,12 @@
 import Spinner from '@/components/spinner/Spinner';
 import React from 'react';
 
-const loading = () => {
+const Loading = () => {
     return (
-        <div className='w-full flex justify-center'>
+        <div className='flex justify-center items-center w-100 flex-col'>
             <Spinner />
         </div>
     );
 };
 
-export default loading;
+export default Loading;
