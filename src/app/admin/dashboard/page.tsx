@@ -1,7 +1,16 @@
-import React from 'react';
+'use client';
+import ToggleSwitch from '@/components/button/ToggleSwitch';
+import React, { useState } from 'react';
 
-const page = () => {
-    return <div className='h-full w-full'>dashboard page</div>;
+const DashboardPage = () => {
+    const [checked, setChecked] = useState<boolean>(false);
+
+    return (
+        <div className='h-full w-full'>
+            <div>checked: {String(checked)}</div>
+            <ToggleSwitch checked={checked} onChange={(value) => setChecked(value)} />
+        </div>
+    );
 };
 
-export default page;
+export default DashboardPage;
