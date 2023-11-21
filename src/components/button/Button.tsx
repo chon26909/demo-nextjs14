@@ -21,7 +21,7 @@ const Button: FC<Button> = (props) => {
             type='button'
             className={[
                 className,
-                'px-10 py-3 rounded active:opacity-90',
+                'min-w-[150px] p-2 rounded active:opacity-80',
                 variantStyle[variant]
             ].join(' ')}
             {...other}
