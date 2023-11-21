@@ -15,9 +15,9 @@ export interface ThemeContextType {
     setTheme: Dispatch<SetStateAction<Theme>>;
 }
 
-export const ThemeContext = createContext<ThemeContextType>({} as ThemeContextType);
+const ThemeContext = createContext<ThemeContextType>({} as ThemeContextType);
 
-export const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
+const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
     const [theme, setTheme] = useState<Theme>('none');
 
     useEffect(() => {
@@ -49,8 +49,7 @@ export const ThemeContextProvider = ({ children }: { children: React.ReactNode }
     );
 };
 
-// eslint-disable-next-line react-hooks/rules-of-hooks
-export const useTheme = () => {
+const useTheme = () => {
     const context = useContext(ThemeContext);
 
     if (context === undefined) {
@@ -59,3 +58,5 @@ export const useTheme = () => {
 
     return context;
 };
+
+export { ThemeContext, ThemeContextProvider, useTheme };
