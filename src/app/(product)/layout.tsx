@@ -1,5 +1,5 @@
 'use client';
-import Navbar from '@/components/Navbar';
+import Navbar from './Navbar';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Suspense } from 'react';
 import Loading from './loading';
