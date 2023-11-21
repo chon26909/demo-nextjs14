@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
-import NavbarAdmin from '@/components/NavbarAdmin';
-import Sidebar from '@/components/Sidebar';
+import NavbarAdmin from './NavbarAdmin';
+import Sidebar from './Sidebar';
 import { ThemeContextProvider } from '@/context/ThemeContext';
 import LoadingAdminLayout from './loading';
 import { AuthContextProvider } from '@/context/AuthContext';
