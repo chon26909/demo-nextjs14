@@ -2,6 +2,7 @@
 
 import Button from '@/components/button/Button';
 import Spinner from '@/components/spinner/Spinner';
+import { useAuth } from '@/context/AuthContext';
 import { getProductId } from '@/services/productService';
 import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
@@ -14,6 +15,9 @@ type Params = {
 
 const ProductPage = () => {
     const params = useParams<Params>();
+    const auth = useAuth();
+
+    console.log('auth', auth);
 
     // Queries
     const { data, isLoading } = useQuery({
@@ -39,8 +43,6 @@ const ProductPage = () => {
     if (!data || isLoading) {
         return <div>loading...</div>;
     }
-
-    console.log(data);
 
     return (
         <Suspense fallback={<Spinner />}>
