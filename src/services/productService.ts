@@ -1,10 +1,9 @@
 import { IPagination } from '@/types/common';
 import { dummyApi } from './axiosInstance';
 import { IProduct, IProductResponse } from '@/types/product';
-import { resolve } from 'path';
 
 export const getProducts = async ({ page, perPage }: IPagination) => {
-    await new Promise((rosolve) => setTimeout(rosolve, 3000));
+    // await new Promise((rosolve) => setTimeout(rosolve, 3000));
 
     const limit = perPage;
     const skip = perPage * (page - 1);
