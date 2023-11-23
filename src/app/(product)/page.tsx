@@ -3,9 +3,13 @@
 import { getProducts } from '@/services/productService';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import Card from './products/Card';
 import Placeholder from './products/Placeholder';
+import Modal from '@/components/modal/Modal';
+import Button from '@/components/button/Button';
+import { useModal } from '@/context/ModalContext';
+import { dialogStore } from '@/components/dialog/DialogStore';
 
 const ProductsPage = () => {
     const {
@@ -64,8 +68,66 @@ const ProductsPage = () => {
     //     // eslint-disable-next-line react-hooks/exhaustive-deps
     // }, []);
 
+    const { showModal, closeModal } = useModal();
+
+    const ModalOne = () => (
+        <div>
+            <Button
+                variant='solid'
+                onClick={() =>
+                    showModal(
+                        <div>
+                            <div>modal one</div>
+                            <Button variant='solid' onClick={() => closeModal()}>
+                                close one
+                            </Button>
+                            <ModalTwo />
+                        </div>
+                    )
+                }
+            >
+                open modal one
+            </Button>
+        </div>
+    );
+
+    const ModalTwo = () => (
+        <div>
+            <Button
+                variant='solid'
+                onClick={() =>
+                    showModal(
+                        <div>
+                            <div>modal two</div>
+                            <Button variant='solid' onClick={() => closeModal()}>
+                                close two
+                            </Button>
+                        </div>
+                    )
+                }
+            >
+                open modal one
+            </Button>
+        </div>
+    );
+
+    const { success } = dialogStore();
+
     return (
         <>
+            <Button
+                variant='bordered'
+                onClick={() =>
+                    success({
+                        title: 'success',
+                        descripion: 'test',
+                        icon: 'success'
+                    })
+                }
+            >
+                open dialog
+            </Button>
+            {/* <ModalOne /> */}
             <div>isLoading: {String(isLoading)}</div>
             <div>isFetching: {String(isFetching)}</div>
             <div>isFetchingNextPage: {String(isFetchingNextPage)}</div>
@@ -93,6 +155,10 @@ const ProductsPage = () => {
                     load more
                 </div>
             )}
+
+            {/* <Modal isShow={showModal} className='w-[700px] min-h-[500px]'>
+                <div>modal</div>
+            </Modal> */}
 
             {/* <ReactQueryDevtools initialIsOpen /> */}
         </>

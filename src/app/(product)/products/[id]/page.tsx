@@ -8,6 +8,7 @@ import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import React, { Suspense, useEffect, useState } from 'react';
+import ModalPreview from './ModalPreview';
 
 type Params = {
     id: string;
@@ -26,12 +27,18 @@ const ProductPage = () => {
     });
 
     const [previewImage, setPreviewImage] = useState<string>();
+    const [modalPreviewImage, setModalPreviewImage] = useState(false);
 
     const handleMouseOver = (index: number) => {
         if (data) {
             console.log('handleMouseOver ', index);
             setPreviewImage(data.images[index]);
         }
+    };
+
+    const openPreview = () => {
+        console.log('openPreview');
+        setModalPreviewImage(true);
     };
 
     useEffect(() => {
@@ -46,6 +53,13 @@ const ProductPage = () => {
 
     return (
         <Suspense fallback={<Spinner />}>
+            {previewImage && (
+                <ModalPreview
+                    isShow={true}
+                    imageUrl={previewImage}
+                    onClose={() => setModalPreviewImage(false)}
+                />
+            )}
             <div className='grid grid-cols-2 gap-5 mt-20'>
                 <div className='col-span-1'>
                     {previewImage && (
@@ -54,7 +68,8 @@ const ProductPage = () => {
                             alt={data.description}
                             width={1000}
                             height={500}
-                            className='rounded w-full h-[200px] sm:h-[250px] md:h-[450px] object-cover'
+                            className='rounded w-full h-[200px] sm:h-[250px] md:h-[450px] object-cover cursor-pointer'
+                            onClick={openPreview}
                         />
                     )}
 

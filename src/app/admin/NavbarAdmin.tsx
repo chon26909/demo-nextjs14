@@ -5,12 +5,10 @@ const NavbarAdmin = () => {
     return (
         <header className='h-[75px] shadow-md'>
             <div className='mx-auto py-5 font-bold flex justify-between items-center h-full'>
-                <Link href={'/admin/dashboard'} className='mr-10'>
+                <Link href={'/admin/dashboard'}>
                     <div className='mx-5 text-primary text-4xl'>Shopy</div>
                 </Link>
-                <Link href={'/'} className='mr-10'>
-                    go to shop
-                </Link>
+                <Link href={'/'}>go to shop</Link>
             </div>
         </header>
     );

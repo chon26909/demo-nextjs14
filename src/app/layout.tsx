@@ -12,9 +12,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang='en'>
-            <body
-                className={[inter.className, 'flex min-h-screen flex-col overflow-y-scroll'].join()}
-            >
+            <body className={[inter.className, 'flex min-h-screen flex-col'].join()}>
                 {children}
             </body>
         </html>

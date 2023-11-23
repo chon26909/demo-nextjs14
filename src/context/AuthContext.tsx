@@ -20,8 +20,7 @@ const AuthContextProvider = ({ children }: { children: ReactNode }) => {
         const checkToken = async () => {
             const storedToken = sessionStorage.getItem('token');
 
-            if (storedToken) {
-            } else {
+            if (!storedToken) {
                 router.replace('/login');
             }
         };

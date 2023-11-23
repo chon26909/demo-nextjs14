@@ -1,12 +1,12 @@
-import React, { FC } from 'react';
+import React, { ButtonHTMLAttributes, FC, InputHTMLAttributes } from 'react';
 
 type Variant = 'solid' | 'bordered';
-
-type Button = {
+interface Button extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
+    full?: boolean;
     variant: Variant;
     children: React.ReactNode | string;
-};
+}
 
 const variantStyle: Record<Variant, string> = {
     solid: 'border-primary border-2 bg-primary text-white',
@@ -14,14 +14,15 @@ const variantStyle: Record<Variant, string> = {
 };
 
 const Button: FC<Button> = (props) => {
-    const { variant, children, className, ...other } = props;
+    const { variant, full, children, className, ...other } = props;
 
     return (
         <button
-            type='button'
+            type={'button'}
             className={[
                 className,
-                'min-w-[150px] p-2 rounded active:opacity-80',
+                full ? 'w-full' : 'w-[150px]',
+                'p-2 rounded active:opacity-80',
                 variantStyle[variant]
             ].join(' ')}
             {...other}
