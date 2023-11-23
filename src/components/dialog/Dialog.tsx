@@ -17,11 +17,11 @@ const Dialog = (props: Props) => {
             <div className='font-bold text-2xl text-center'>{title}</div>
             <div className='flex justify-between mt-5'>
                 <Button variant='solid' onClick={() => handleClick()}>
-                    confirm
+                    ok
                 </Button>
-                <Button variant='bordered' onClick={() => handleClick()}>
+                {/* <Button variant='bordered' onClick={() => handleClick()}>
                     cancel
-                </Button>
+                </Button> */}
             </div>
         </Modal>
     );
