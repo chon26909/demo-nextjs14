@@ -5,10 +5,14 @@ import InputText from '@/components/input/InputText';
 import React, { useEffect, useRef } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { login } from '@/services/authService';
+import { dialogStore } from '@/components/dialog/DialogStore';
+import Dialog from '@/components/dialog/Dialog';
 
 const LoginForm = () => {
     const usernameRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
+
+    const dialog = dialogStore();
 
     const { mutate, mutateAsync } = useMutation({ mutationFn: login });
 
@@ -23,6 +27,7 @@ const LoginForm = () => {
             mutate(data, {
                 onSuccess: (res) => {
                     console.log('response', res);
+                    dialog.success({ title: 'login success', descripion: '', icon: 'success' });
                 },
                 onError: (error) => {
                     console.log('error', error);
@@ -41,8 +46,9 @@ const LoginForm = () => {
 
             try {
                 const res = await mutateAsync(data);
-
                 console.log('res', res);
+
+                dialog.success({ title: 'login success', descripion: '', icon: 'success' });
             } catch (error) {
                 console.log('error', error);
             }
@@ -81,6 +87,7 @@ const LoginForm = () => {
                     </Button>
                 </div>
             </div>
+            <Dialog />
         </div>
     );
 };
