@@ -1,11 +1,12 @@
 import React, { ButtonHTMLAttributes, FC, InputHTMLAttributes } from 'react';
 
 type Variant = 'solid' | 'bordered';
-interface Button extends ButtonHTMLAttributes<HTMLButtonElement> {
-    className?: string;
+interface Button {
+    className?: ButtonHTMLAttributes<HTMLButtonElement>['className'];
     full?: boolean;
     variant: Variant;
     children: React.ReactNode | string;
+    onClick?: ButtonHTMLAttributes<HTMLButtonElement>['onClick'];
 }
 
 const variantStyle: Record<Variant, string> = {
