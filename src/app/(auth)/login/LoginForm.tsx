@@ -2,7 +2,7 @@
 
 import Button from '@/components/button/Button';
 import InputText from '@/components/input/InputText';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { login } from '@/services/authService';
 import { dialogStore } from '@/components/dialog/DialogStore';
@@ -12,9 +12,15 @@ const LoginForm = () => {
     const usernameRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
 
+    const [loading, setLoading] = useState(false);
+
     const dialog = dialogStore();
 
-    const { mutate, mutateAsync } = useMutation({ mutationFn: login });
+    const { mutate, mutateAsync } = useMutation({
+        mutationFn: login,
+        onMutate: () => setLoading(true),
+        onSuccess: () => setLoading(false)
+    });
 
     const handleLogin = () => {
         if (usernameRef.current?.value && passwordRef.current?.value) {
@@ -81,9 +87,9 @@ const LoginForm = () => {
                         full={true}
                     />
                 </div>
-                <div>
+                <div className='text-center'>
                     <Button variant='solid' full={true} onClick={handleLoginAsync}>
-                        Submit
+                        {loading ? 'sending...' : 'Submit'}
                     </Button>
                 </div>
             </div>
