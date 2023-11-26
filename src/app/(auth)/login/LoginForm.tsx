@@ -7,8 +7,11 @@ import { useMutation } from '@tanstack/react-query';
 import { login } from '@/services/authService';
 import { dialogStore } from '@/components/dialog/DialogStore';
 import Dialog from '@/components/dialog/Dialog';
+import { useRouter } from 'next/navigation';
 
 const LoginForm = () => {
+    const router = useRouter();
+
     const usernameRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
 
@@ -33,7 +36,7 @@ const LoginForm = () => {
             mutate(data, {
                 onSuccess: (res) => {
                     console.log('response', res);
-                    dialog.success({ title: 'login success', descripion: '', icon: 'success' });
+                    // dialog.success({ title: 'login success', descripion: '', icon: 'success' });
                 },
                 onError: (error) => {
                     console.log('error', error);
@@ -54,7 +57,11 @@ const LoginForm = () => {
                 const res = await mutateAsync(data);
                 console.log('res', res);
 
-                dialog.success({ title: 'login success', descripion: '', icon: 'success' });
+                // dialog.success({ title: 'login success', descripion: '', icon: 'success' });
+
+                sessionStorage.setItem('token', 'abcd');
+
+                router.push('/admin/dashboard');
             } catch (error) {
                 console.log('error', error);
             }
