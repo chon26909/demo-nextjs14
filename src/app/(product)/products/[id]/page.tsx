@@ -1,6 +1,7 @@
 import Button from '@/components/button/Button';
 import { getProductId, getProducts } from '@/services/productService';
 import { GetStaticPaths } from 'next';
+import Preview from './Preview';
 
 type Params = {
     id: string;
@@ -55,67 +56,33 @@ export async function generateStaticParams() {
 // };
 
 const ProductPage = async ({ params }: PageProps) => {
-    console.log('params: ', params.id);
-
     const data = await getProductId(params.id);
-
-    // // Queries
-    // const { data, isLoading } = useQuery({
-    //     queryKey: ['product'],
-    //     queryFn: () => getProductId(params.id)
-    // });
-
-    // const [previewImage, setPreviewImage] = useState<string>();
-    // const [modalPreviewImage, setModalPreviewImage] = useState(false);
-
-    // const handleMouseOver = (index: number) => {
-    //     if (data) {
-    //         console.log('handleMouseOver ', index);
-    //         setPreviewImage(data.images[index]);
-    //     }
-    // };
-
-    // const openPreview = () => {
-    //     console.log('openPreview');
-    //     setModalPreviewImage(true);
-    // };
-
-    // useEffect(() => {
-    //     if (data) {
-    //         setPreviewImage(data.thumbnail);
-    //     }
-    // }, [data]);
-
-    // if (!data) {
-    //     return <div></div>;
-    // }
-
-    // return (
-    //     <div>
-    //         product {params.id} {title}
-    //     </div>
-    // );
 
     return (
         <div>
             {data && (
-                <div className='col-span-1 ml-5'>
-                    <div className='font-bold text-[42px]'>{data.title}</div>
-                    <div>{data.description}</div>
-                    <div className='bg-slate-50 mt-2 p-5 flex items-center text-primary'>
-                        <span className='text-4xl font-medium select-none'>฿</span>
-                        <span className='pl-1 text-3xl font-bold'>{data.price}</span>
-                        <span className='bg-primary ml-3 rounded text-white p-1 text-sm select-none'>
-                            discount {data.discountPercentage}%
-                        </span>
+                <div className='grid grid-cols-2 gap-5 mt-20'>
+                    <div className='col-span-1'>
+                        <Preview images={data.images} thumbnail={data.thumbnail} />
                     </div>
-                    <div className='mt-5'>
-                        <Button variant='bordered' className='px-14'>
-                            Add to cart
-                        </Button>
-                        <Button variant='solid' className='ml-5 px-16'>
-                            Buy now
-                        </Button>
+                    <div className='col-span-1 ml-5'>
+                        <div className='font-bold text-[42px]'>{data.title}</div>
+                        <div>{data.description}</div>
+                        <div className='bg-slate-50 mt-2 p-5 flex items-center text-primary'>
+                            <span className='text-4xl font-medium select-none'>฿</span>
+                            <span className='pl-1 text-3xl font-bold'>{data.price}</span>
+                            <span className='bg-primary ml-3 rounded text-white p-1 text-sm select-none'>
+                                discount {data.discountPercentage}%
+                            </span>
+                        </div>
+                        <div className='mt-5'>
+                            <Button variant='bordered' className='px-14'>
+                                Add to cart
+                            </Button>
+                            <Button variant='solid' className='ml-5 px-16'>
+                                Buy now
+                            </Button>
+                        </div>
                     </div>
                 </div>
             )}

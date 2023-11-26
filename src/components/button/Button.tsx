@@ -22,7 +22,7 @@ const Button: FC<Button> = (props) => {
             type={'button'}
             className={[
                 className,
-                full ? 'w-full' : 'w-[150px]',
+                full ? 'w-full' : 'w-[200px]',
                 'p-2 rounded active:opacity-80',
                 variantStyle[variant]
             ].join(' ')}

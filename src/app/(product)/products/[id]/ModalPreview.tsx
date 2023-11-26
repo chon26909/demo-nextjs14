@@ -8,11 +8,10 @@ type Props = {
     isShow: boolean;
     imageUrl: string;
     onClose: () => void;
-    // showImage: (imageUrl: string) => void;
 };
 
 const ModalPreview = (props: Props) => {
-    const [show, setShow] = useState(true);
+    const [show, setShow] = useState(props.isShow);
 
     const { isShow, onClose, imageUrl } = props;
 
