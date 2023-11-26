@@ -10,7 +10,7 @@ interface IPreview {
 }
 
 const Preview: FC<IPreview> = ({ images, thumbnail }) => {
-    const [previewImage, setPreviewImage] = useState<string>(thumbnail);
+    const [previewImage, setPreviewImage] = useState(thumbnail);
     const [modalPreviewImage, setModalPreviewImage] = useState(false);
 
     const handleMouseOver = (index: number) => {
