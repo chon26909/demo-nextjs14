@@ -22,7 +22,7 @@ const ModalContextProvider = ({ children }: { children: ReactNode }) => {
 
     return (
         <ModalContext.Provider value={value}>
-            <pre>{JSON.stringify(modalArray, null, 2)}</pre>
+            {/* <pre>{JSON.stringify(modalArray, null, 2)}</pre> */}
 
             {modalArray.length > 0 && (
                 <div className='fixed top-0 left-0 bg-black/50 h-screen w-screen flex justify-center items-center'>

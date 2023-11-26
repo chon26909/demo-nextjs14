@@ -1,17 +1,17 @@
 import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 
-const baseURL = process.env.NEXT_PUBLIC_API_URL;
+const baseURL = process.env.NEXT_PUBLIC_API_URL as string;
 
 export const dummyApi = axios.create({
-    baseURL,
+    baseURL: 'https://dummyjson.com',
     headers: {
         'Content-Type': 'application/json'
     }
 });
 
 const onRequest = (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
-    const token = localStorage.getItem('token');
-    config.headers.Authorization = 'Bearer ' + token;
+    // const token = localStorage.getItem('token');
+    // config.headers.Authorization = 'Bearer ' + token;
     return config;
 };
 const onRequestError = (err: AxiosError): Promise<AxiosError> => {
