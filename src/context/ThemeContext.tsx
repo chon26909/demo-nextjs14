@@ -26,7 +26,7 @@ const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
         if (themeStore) {
             setTheme(themeStore as Theme);
         } else {
-            setTheme('light');
+            setTheme('shopee');
         }
     }, []);
 

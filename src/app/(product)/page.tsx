@@ -23,7 +23,7 @@ const ProductsPage = () => {
         isLoading
     } = useInfiniteQuery({
         queryKey: ['products'],
-        queryFn: ({ pageParam }) => getProducts({ page: pageParam, perPage: 5 }),
+        queryFn: ({ pageParam }) => getProducts({ page: pageParam, perPage: 4 }),
         initialPageParam: 1,
         getNextPageParam: (lastPage, allPage) => {
             // console.log('lastPage', lastPage);
@@ -115,7 +115,7 @@ const ProductsPage = () => {
 
     return (
         <>
-            <Button
+            {/* <Button
                 variant='bordered'
                 onClick={() =>
                     success({
@@ -126,7 +126,7 @@ const ProductsPage = () => {
                 }
             >
                 open dialog
-            </Button>
+            </Button> */}
             {/* <ModalOne /> */}
             <div>isLoading: {String(isLoading)}</div>
             <div>isFetching: {String(isFetching)}</div>
