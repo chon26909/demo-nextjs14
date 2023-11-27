@@ -5,8 +5,8 @@ type Props = {
     children: React.ReactNode;
 };
 
-const template = ({ children }: Props) => {
+const Layout = ({ children }: Props) => {
     return <ThemeContextProvider>{children}</ThemeContextProvider>;
 };
 
-export default template;
+export default Layout;
