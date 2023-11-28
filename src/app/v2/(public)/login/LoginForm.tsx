@@ -2,8 +2,8 @@
 import Button from '@/components/button/Button';
 import InputText from '@/components/input/InputText';
 import React, { useEffect, useRef } from 'react';
-import { useFormState } from 'react-dom';
-import { submitLogin } from './action';
+// import { useFormState } from 'react-dom';
+// import { submitLogin } from './action';
 import { useRouter } from 'next/navigation';
 
 type Props = {};
@@ -16,24 +16,20 @@ const LoginForm = (props: Props) => {
     const username = useRef<HTMLInputElement>(null);
     const password = useRef<HTMLInputElement>(null);
 
-    const [state, formAction] = useFormState(submitLogin, { error: null });
+    // const [state, formAction] = useFormState(submitLogin, { error: null });
 
-    useEffect(() => {
-        const redirect = () => {
-            if (state.message == 'success') {
-                router.replace('/v2');
-            }
-        };
+    // useEffect(() => {
+    //     const redirect = () => {
+    //         if (state.message == 'success') {
+    //             router.replace('/v2');
+    //         }
+    //     };
 
-        redirect();
-    }, [state, router]);
+    //     redirect();
+    // }, [state, router]);
 
     return (
-        <form
-            ref={form}
-            action={formAction}
-            className='bg-white p-7 w-[500px] shadow-lg rounded-md'
-        >
+        <form ref={form} className='bg-white p-7 w-[500px] shadow-lg rounded-md'>
             <div className='text-center text-4xl font-semibold mb-5'>Login</div>
             <InputText
                 type='text'
