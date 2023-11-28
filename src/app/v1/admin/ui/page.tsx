@@ -32,10 +32,12 @@ const UiPage = () => {
             </div>
             <div className='mb-10'>
                 <div>button</div>
-                <Button className='mr-5' variant='solid'>
+                <Button type='button' className='mr-5' variant='solid'>
                     click
                 </Button>
-                <Button variant='bordered'>click</Button>
+                <Button type='button' variant='bordered'>
+                    click
+                </Button>
             </div>
             <div className='mb-10'>
                 <div>Switch</div>
