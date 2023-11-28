@@ -95,7 +95,7 @@ const LoginForm = () => {
                     />
                 </div>
                 <div className='text-center'>
-                    <Button variant='solid' full={true} onClick={handleLoginAsync}>
+                    <Button type='submit' variant='solid' full={true} onClick={handleLoginAsync}>
                         {loading ? 'sending...' : 'Submit'}
                     </Button>
                 </div>
