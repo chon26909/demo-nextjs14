@@ -39,6 +39,6 @@ export const getProductByCategory = async (category: string) => {
         const res = await dummyApi.get<IProductResponse>(`/products/category/` + category);
         return res.data;
     } catch (error) {
-        console.log('error', error);
+        console.log('error ', error);
     }
 };
