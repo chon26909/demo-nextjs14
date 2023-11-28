@@ -16,7 +16,7 @@ const Dialog = (props: Props) => {
         <Modal isShow={isOpen}>
             <div className='font-bold text-2xl text-center'>{title}</div>
             <div className='flex justify-between mt-5'>
-                <Button variant='solid' onClick={() => handleClick()}>
+                <Button type='button' variant='solid' onClick={() => handleClick()}>
                     ok
                 </Button>
                 {/* <Button variant='bordered' onClick={() => handleClick()}>
