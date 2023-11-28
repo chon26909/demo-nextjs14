@@ -9,7 +9,7 @@ type Props = {
 
 const ProductCategory = async (props: Props) => {
     return (
-        <div>
+        <div className='mb-10'>
             <div className='text-4xl font-semibold'>{props.category}</div>
             <Suspense fallback={<CategoryPlacehoder />}>
                 <ProductList category={props.category} />
@@ -27,7 +27,8 @@ const ProductList = async (props: Props) => {
 
     return (
         <div>
-            <div className='grid grid-cols-fluid gap-5'>
+            <div className=''>product all sale.</div>
+            <div className='grid grid-cols-fluid gap-5 mt-5'>
                 {data?.products?.map((item) => {
                     return (
                         <div key={item.id}>
@@ -42,7 +43,7 @@ const ProductList = async (props: Props) => {
 
 export const CategoryPlacehoder = () => {
     return (
-        <div role='status' className='animate-pulse mb-10'>
+        <div role='status' className='animate-pulse mb-10 mt-3'>
             {/* <div className='flex items-center justify-center w-full h-48 bg-gray-300 rounded sm:w-96 dark:bg-gray-700'>
                 <svg
                     className='w-10 h-10 text-gray-200 dark:text-gray-600'
@@ -55,7 +56,7 @@ export const CategoryPlacehoder = () => {
                 </svg>
             </div> */}
             <div className='w-full'>
-                <div className='h-5 bg-gray-200 rounded-full dark:bg-gray-300 w-[400px] mb-4'></div>
+                {/* <div className='h-5 bg-gray-200 rounded-full dark:bg-gray-300 w-[400px] mb-4'></div> */}
                 <div className='h-3 bg-gray-200 rounded-full dark:bg-gray-300 max-w-[680px] mb-2.5'></div>
             </div>
             <div className='w-full'>
