@@ -8,7 +8,7 @@ const Card: FC<IProduct> = (props) => {
 
     return (
         <div className='border rounded-md p-3'>
-            <Link href={`products/${id}`}>
+            <Link href={`/v1/products/${id}`}>
                 <Image
                     src={thumbnail}
                     alt={description}
