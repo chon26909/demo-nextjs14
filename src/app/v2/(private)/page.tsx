@@ -9,6 +9,9 @@ const page = () => {
         <Container>
             <ProductCategory category='smartphones' />
             <ProductCategory category='laptops' />
+            <ProductCategory category='sunglasses' />
+            <ProductCategory category='lighting' />
+            <ProductCategory category='motorcycle' />
         </Container>
     );
 };

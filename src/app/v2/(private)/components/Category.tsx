@@ -26,9 +26,21 @@ const ProductList = async (props: Props) => {
     console.log('data', data);
 
     return (
-        <div>
-            <div className=''>product all sale.</div>
-            <div className='grid grid-cols-fluid gap-5 mt-5'>
+        <>
+            <div className='mt-2'>
+                <span className='font-semibold'>Brand: </span>
+                {data?.products?.map((item, index) => {
+                    return (
+                        <span
+                            key={index}
+                            className='mr-2 py-1 px-3 rounded-3xl bg-slate-300 text-sm'
+                        >
+                            {item.brand}
+                        </span>
+                    );
+                })}
+            </div>
+            <div className='grid grid-cols-fluid gap-5 mt-3'>
                 {data?.products?.map((item) => {
                     return (
                         <div key={item.id}>
@@ -37,7 +49,7 @@ const ProductList = async (props: Props) => {
                     );
                 })}
             </div>
-        </div>
+        </>
     );
 };
 
@@ -57,7 +69,7 @@ export const CategoryPlacehoder = () => {
             </div> */}
             <div className='w-full'>
                 {/* <div className='h-5 bg-gray-200 rounded-full dark:bg-gray-300 w-[400px] mb-4'></div> */}
-                <div className='h-3 bg-gray-200 rounded-full dark:bg-gray-300 max-w-[680px] mb-2.5'></div>
+                <div className='h-7 bg-gray-200 rounded-full dark:bg-gray-300 max-w-[680px] mb-2.5'></div>
             </div>
             <div className='w-full'>
                 <div>

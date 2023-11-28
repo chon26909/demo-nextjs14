@@ -33,7 +33,7 @@ export const getProductId = async (id: string) => {
 };
 
 export const getProductByCategory = async (category: string) => {
-    await new Promise((rosolve) => setTimeout(rosolve, 5000));
+    await new Promise((rosolve) => setTimeout(rosolve, 3000));
 
     try {
         const res = await dummyApi.get<IProductResponse>(`/products/category/` + category);
