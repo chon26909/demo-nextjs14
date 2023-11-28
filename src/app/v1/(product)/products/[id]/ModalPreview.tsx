@@ -27,6 +27,7 @@ const ModalPreview = (props: Props) => {
             <div>preview image</div>
             <Image src={imageUrl} alt='preview' width={300} height={300} />
             <Button
+                type='button'
                 variant='bordered'
                 onClick={() => {
                     onClose();
