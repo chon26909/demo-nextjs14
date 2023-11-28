@@ -73,12 +73,13 @@ const ProductsPage = () => {
     const ModalOne = () => (
         <div>
             <Button
+                type='button'
                 variant='solid'
                 onClick={() =>
                     showModal(
                         <div>
                             <div>modal one</div>
-                            <Button variant='solid' onClick={() => closeModal()}>
+                            <Button variant='solid' onClick={() => closeModal()} type='button'>
                                 close one
                             </Button>
                             <ModalTwo />
@@ -94,12 +95,13 @@ const ProductsPage = () => {
     const ModalTwo = () => (
         <div>
             <Button
+                type='button'
                 variant='solid'
                 onClick={() =>
                     showModal(
                         <div>
                             <div>modal two</div>
-                            <Button variant='solid' onClick={() => closeModal()}>
+                            <Button type='button' variant='solid' onClick={() => closeModal()}>
                                 close two
                             </Button>
                         </div>
