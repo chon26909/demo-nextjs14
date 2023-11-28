@@ -76,10 +76,10 @@ const ProductPage = async ({ params }: PageProps) => {
                             </span>
                         </div>
                         <div className='mt-5'>
-                            <Button variant='bordered' className='px-14'>
+                            <Button type='button' variant='bordered' className='px-14'>
                                 Add to cart
                             </Button>
-                            <Button variant='solid' className='ml-5 px-16'>
+                            <Button type='button' variant='solid' className='ml-5 px-16'>
                                 Buy now
                             </Button>
                         </div>
