@@ -23,7 +23,7 @@ export default ProductCategory;
 const ProductList = async (props: Props) => {
     const data = await getProductByCategory(props.category);
 
-    console.log('data', data);
+    // console.log('data', data);
 
     return (
         <>
