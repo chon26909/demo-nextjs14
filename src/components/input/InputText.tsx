@@ -8,10 +8,10 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const inputClass =
-    'text-[16px] mt-1 px-3 py-2 bg-white border shadow-sm border-gray_text rounded placeholder-slate-400 focus:outline-none';
+    'text-[20px] mt-1 px-3 py-2 bg-white border shadow-sm border-gray_text rounded placeholder-slate-400 focus:outline-none';
 
 const InputText = forwardRef<HTMLInputElement, IInputProps>((props, ref) => {
-    const { full, label, className, name, errorMessage } = props;
+    const { full, label, className, type, errorMessage } = props;
 
     return (
         <div>
@@ -19,7 +19,7 @@ const InputText = forwardRef<HTMLInputElement, IInputProps>((props, ref) => {
                 <label htmlFor={label}>{label}</label>
                 <input
                     ref={ref}
-                    type='text'
+                    type={type}
                     name={props.name}
                     className={[
                         className,
