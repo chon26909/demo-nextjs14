@@ -5,6 +5,7 @@ import React, { useEffect, useRef } from 'react';
 // import { useFormState } from 'react-dom';
 // import { submitLogin } from './action';
 import { useRouter } from 'next/navigation';
+import { signIn } from 'next-auth/react';
 
 type Props = {};
 
@@ -28,8 +29,33 @@ const LoginForm = (props: Props) => {
     //     redirect();
     // }, [state, router]);
 
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        try {
+            const res = await signIn('credentials', {
+                username: username.current?.value,
+                password: password.current?.value,
+                redirect: false
+            });
+
+            if (res?.ok) {
+                router.replace('/v2');
+                router.refresh();
+            }
+
+            console.log('res', res);
+        } catch (error) {
+            console.log('error', error);
+        }
+    };
+
     return (
-        <form ref={form} className='bg-white p-7 w-[500px] shadow-lg rounded-md'>
+        <form
+            ref={form}
+            onSubmit={handleSubmit}
+            className='bg-white p-7 w-[500px] shadow-lg rounded-md'
+        >
             <div className='text-center text-4xl font-semibold mb-5'>Login</div>
             <InputText
                 type='text'
@@ -50,7 +76,6 @@ const LoginForm = (props: Props) => {
             <Button type='submit' variant='solid' full={true}>
                 Submit
             </Button>
-            {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
         </form>
     );
 };
