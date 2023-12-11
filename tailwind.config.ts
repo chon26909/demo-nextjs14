@@ -1,7 +1,8 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
-    'tailwindCSS.experimental.classRegex': [['classnames\\(([^)]*)\\)', "'([^']*)'"]],
+    // 'tailwindCSS.experimental.classRegex': [['classnames\\(([^)]*)\\)', "'([^']*)'"]],
+    //'tailwindCSS.classAttributes': ['class', 'className', 'ngClass', 'extra', 'someOtherAttribute'],
     content: [
         './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
         './src/components/**/*.{js,ts,jsx,tsx,mdx}',
