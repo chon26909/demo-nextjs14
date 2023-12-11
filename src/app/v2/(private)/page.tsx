@@ -8,7 +8,8 @@ import InputPhone from '@/components/input/InputPhone';
 const page = () => {
     return (
         <Container>
-            <InputPhone />
+            <div>server side render</div>
+            {/* <InputPhone /> */}
             <ProductCategory category='smartphones' />
             <ProductCategory category='laptops' />
             <ProductCategory category='sunglasses' />

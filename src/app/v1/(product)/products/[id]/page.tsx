@@ -60,6 +60,7 @@ const ProductPage = async ({ params }: PageProps) => {
 
     return (
         <div>
+            <div>server side</div>
             {data && (
                 <div className='grid grid-cols-2 gap-5 mt-20'>
                     <div className='col-span-1'>

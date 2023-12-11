@@ -22,12 +22,12 @@ const InputText = forwardRef<HTMLInputElement, IInputProps>((props, ref) => {
                     type={type}
                     name={props.name}
                     className={[
-                        className,
                         full ? 'w-full' : 'w-[250px]',
                         errorMessage && errorMessage.length > 0
                             ? '!border-red ring-1 ring-red'
                             : 'focus:border-primary focus:ring-1 ring-primary',
-                        inputClass
+                        inputClass,
+                        className
                     ].join(' ')}
                     {...props}
                 />

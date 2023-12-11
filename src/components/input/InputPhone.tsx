@@ -56,12 +56,11 @@ const InputPhone = (props: Props) => {
         <div>
             <InputText
                 // label='Phone'
-
+                className='w-full'
                 ref={inputPhone}
                 type='tel'
                 defaultValue='0123456789'
                 onChange={onChangeInputPhone}
-                full
             />
         </div>
     );
