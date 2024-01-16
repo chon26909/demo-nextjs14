@@ -4,11 +4,12 @@ import Spinner from '@/components/spinner/Spinner';
 import ProductCategory, { CategoryPlacehoder } from './components/Category';
 import Container from './components/Container';
 import InputPhone from '@/components/input/InputPhone';
+import Header from './Header';
 
 const page = () => {
     return (
         <Container>
-            <div>server side render</div>
+            <Header />
             {/* <InputPhone /> */}
             <ProductCategory category='smartphones' />
             <ProductCategory category='laptops' />
