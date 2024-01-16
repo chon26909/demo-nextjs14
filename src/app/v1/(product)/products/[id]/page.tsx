@@ -1,6 +1,6 @@
 import Button from '@/components/button/Button';
 import { getProductId, getProducts } from '@/services/productService';
-import { GetStaticPaths } from 'next';
+import { GetStaticPaths, Metadata, ResolvingMetadata } from 'next';
 import Preview from './Preview';
 
 type Params = {
@@ -44,16 +44,40 @@ export async function generateStaticParams() {
     return paths;
 }
 
-// export const getStaticProps: GetStaticProps<PageProps> = async ({ params }: PageProps) => {
-//     const res = await getProductId(params.id);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    // read route params
+    const id = params.id;
 
-//     return {
-//         props: {
-//             params: '',
-//             title: res?.title
-//         }
-//     };
-// };
+    // fetch data
+    const data = await getProductId(id);
+
+    return {
+        title: data?.title,
+        metadataBase: new URL('https://shopy.com'),
+        alternates: {
+            canonical: '/',
+            languages: {
+                'en-US': '/en-US',
+                'th-TH': '/th-TH'
+            }
+        },
+        openGraph: {
+            title: data?.title,
+            description: data?.description,
+            url: 'https://shopy.com/1',
+            siteName: 'Shopy',
+            images: data?.images.map((image) => {
+                return {
+                    url: image,
+                    width: 800,
+                    height: 600
+                };
+            }),
+            locale: 'en_US',
+            type: 'website'
+        }
+    };
+}
 
 const ProductPage = async ({ params }: PageProps) => {
     const data = await getProductId(params.id);
