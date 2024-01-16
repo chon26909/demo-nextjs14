@@ -1,0 +1,22 @@
+.list { 
+    padding: 20px;
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .card {
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 500px;
+        background-color: burlywood;
+
+        &:nth-child(even) {
+             align-self: flex-end;
+        }
+        
+        .title { 
+            font-size: 28px;
+        }
+    }
+}

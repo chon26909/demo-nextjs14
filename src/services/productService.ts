@@ -23,6 +23,29 @@ export const getProducts = async ({ page, perPage }: IPagination) => {
     }
 };
 
+export const getProductsTest = async ({ page, perPage }: IPagination) => {
+    await new Promise((rosolve) => setTimeout(rosolve, 3000));
+
+    const limit = perPage;
+    const skip = perPage * (page - 1);
+
+    try {
+        const res = await dummyApi.get<IProductResponse>(`/products`, {
+            params: {
+                limit: limit,
+                skip: skip
+                // select: 'title,price'
+            }
+        });
+
+        return res.data.products || [];
+    } catch (error) {
+        console.log('error', error);
+
+        return [];
+    }
+};
+
 export const getProductId = async (id: string) => {
     try {
         const res = await dummyApi.get<IProduct>(`/products/` + id);

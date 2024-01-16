@@ -13,8 +13,10 @@
     "@tanstack/react-query-devtools": "^5.8.4",
     "axios": "^1.6.2",
     "next": "14.0.2",
+    "next-auth": "^4.24.5",
     "react": "^18",
     "react-dom": "^18",
+    "react-intersection-observer": "^9.5.3",
     "sass": "^1.69.5",
     "zustand": "^4.4.6"
   },

@@ -39,7 +39,7 @@ const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
     }, [theme]);
 
     if (theme === 'none') {
-        return <></>;
+        return <> {children}</>;
     }
 
     return (
