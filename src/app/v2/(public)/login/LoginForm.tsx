@@ -62,7 +62,7 @@ const LoginForm = (props: Props) => {
                 label='Username'
                 name='username'
                 ref={username}
-                defaultValue='kminchelle'
+                defaultValue='chon'
                 full={true}
             />
             <InputText
@@ -70,7 +70,7 @@ const LoginForm = (props: Props) => {
                 label='Password'
                 name='password'
                 ref={password}
-                defaultValue='0lelplR'
+                defaultValue='1234'
                 full={true}
             />
             <Button type='submit' variant='solid' full={true}>
